@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Services\ParseTariffsService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class ParseTariffs extends Command
 {
@@ -35,5 +36,7 @@ class ParseTariffs extends Command
     public function handle(): void
     {
         $this->parseTariffsService->store();
+        Log::info('Tariffs added successfully.');
+        $this->info('Tariffs added successfully.');
     }
 }
